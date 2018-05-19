@@ -22,7 +22,7 @@
 
     <!-- Custom CSS -->
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" />
-
+    <link href="{{ URL::asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     <!-- BEGIN CSS for this page -->
 
     <!-- END CSS for this page -->
@@ -170,7 +170,7 @@
                         </li>
 
                         <li class="submenu">
-                            <a href="{{ url('/') }}">
+                            <a href="{{ url('/categorie') }}">
                                 <i class="fa fa-fw fa-briefcase"></i>
                                 <span> หมวดหมู่เอกสาร </span>
                             </a>
@@ -271,7 +271,7 @@
 
     <!-- App js -->
     <script src="{{ URL::asset('js/pikeadmin.min.js') }}"></script>
-
+    <script src="{{ URL::asset('js/custom.min.js') }}"></script>
     <!-- BEGIN Java Script for this page -->
 
     <!-- END Java Script for this page -->

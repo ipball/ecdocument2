@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Yajra\Datatables\Facades\Datatables;
+use App\Http\Controllers\Controller;
+use Request;
+use App\Repositories\CategorieRepository;
 
 class CategorieController extends Controller
 {
@@ -11,8 +13,10 @@ class CategorieController extends Controller
         return view('categorie/index');
     }
 
-    public function ajax()
+    public function getDatatables(CategorieRepository $categorie)
     {
-        return Datatables::eloquent(User::query())->make(true);
+        $data = $categorie->getDatatables();
+        $datatables = app('datatables');
+        return $datatables->eloquent($data)->make(true);        
     }
 }

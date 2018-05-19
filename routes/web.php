@@ -15,4 +15,5 @@ Route::get('/', 'CategorieController@index');
 Route::prefix('categorie')->group(function(){
     Route::get('', 'CategorieController@index');
     Route::post('', 'CategorieController@store');
+    Route::get('datatables', 'CategorieController@getDatatables');
 });

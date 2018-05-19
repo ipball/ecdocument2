@@ -31,4 +31,10 @@ class CategorieRepository
         $categorie->name = $request->name;
         $categorie->save();
     }
+
+    public function getDatatables()
+    {
+        $query = Categorie::select('id', 'name');
+        return $query;
+    }
 }

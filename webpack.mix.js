@@ -22,12 +22,17 @@ mix.scripts([
     'resources/assets/js/document.js'
 ], 'public/js/document.min.js');
 
+mix.scripts([
+    'resources/assets/js/custom.js'
+], 'public/js/custom.min.js');
+
 mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/css/bootstrap.min.css');
 mix.copy('node_modules/sweetalert2/dist/sweetalert2.min.css', 'public/css/sweetalert2.min.css');
 mix.copy('node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css', 'public/css/dataTables.bootstrap4.css');
 
 mix.copy('resources/assets/css/switchery.min.css', 'public/css/switchery.min.css');
 mix.copy('resources/assets/css/style.css', 'public/css/style.css');
+mix.copy('resources/assets/css/custom.css', 'public/css/custom.css');
 
 mix.copy('resources/assets/js/modernizr.min.js', 'public/js/modernizr.min.js');
 mix.copy('resources/assets/js/pikeadmin.js', 'public/js/pikeadmin.min.js');
