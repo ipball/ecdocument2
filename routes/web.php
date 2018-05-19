@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'CategorieController@index');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('categorie')->group(function(){
+    Route::get('', 'CategorieController@index');
+    Route::post('', 'CategorieController@store');
 });
