@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Request;
 use App\Repositories\CategorieRepository;
 
 class CategorieController extends Controller
@@ -17,6 +16,13 @@ class CategorieController extends Controller
     {
         $data = $categorie->getDatatables();
         $datatables = app('datatables');
-        return $datatables->eloquent($data)->make(true);        
+        return $datatables->eloquent($data)
+            ->blacklist(['id'])
+            ->make(true);
+    }
+
+    public function getById(CategorieRepository $categorie, $id){
+        $data = $categorie->getById($id);
+        return response()->json($data, 200);
     }
 }

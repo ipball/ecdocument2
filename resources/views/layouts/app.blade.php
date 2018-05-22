@@ -251,7 +251,8 @@
 
     </div>
     <!-- END main -->
-
+    <script src="{{ URL::asset('js/vue.min.js') }}"></script>
+    <script src="{{ URL::asset('js/axios.min.js') }}"></script>
     <script src="{{ URL::asset('js/modernizr.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('js/moment.min.js') }}"></script>
@@ -268,6 +269,7 @@
     <script src="{{ URL::asset('js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.scrollTo.min.js') }}"></script>
     <script src="{{ URL::asset('js/switchery.min.js') }}"></script>
+    <script src="{{ URL::asset('js/loadingoverlay.min.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ URL::asset('js/pikeadmin.min.js') }}"></script>

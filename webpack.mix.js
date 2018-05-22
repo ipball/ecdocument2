@@ -41,6 +41,8 @@ mix.copy('resources/assets/js/jquery.blockUI.js', 'public/js/jquery.blockUI.js')
 mix.copy('resources/assets/js/switchery.min.js', 'public/js/switchery.min.js');
 mix.copy('resources/assets/js/popper.min.js', 'public/js/popper.min.js');
 
+mix.copy('node_modules/vue/dist/vue.min.js', 'public/js/vue.min.js');
+mix.copy('node_modules/axios/dist/axios.min.js', 'public/js/axios.min.js');
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js/jquery.min.js');
 mix.copy('node_modules/moment/min/moment.min.js', 'public/js/moment.min.js');
 mix.copy('node_modules/fastclick/lib/fastclick.js', 'public/js/fastclick.js');
@@ -55,6 +57,7 @@ mix.copy('node_modules/jquery-validation/dist/jquery.validate.min.js', 'public/j
 mix.copy('node_modules/jquery-validation/dist/localization/messages_th.js', 'public/js/messages_th.js');
 mix.copy('node_modules/datatables.net/js/jquery.dataTables.js', 'public/js/jquery.dataTables.js');
 mix.copy('node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js', 'public/js/dataTables.bootstrap4.js');
+mix.copy('node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.min.js', 'public/js/loadingoverlay.min.js');
 
 mix.copyDirectory('resources/assets/img', 'public/img');
 mix.copyDirectory('resources/assets/font-awesome', 'public/font-awesome');
