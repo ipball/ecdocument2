@@ -3,7 +3,7 @@
     <div class="card mb-3">
         <div class="card-header">
             <div class="pull-right">
-                <a href="#" role="button" class="btn btn-dark btn-create" data-toggle="modal" data-target="#ajaxLargeModal">
+                <a href="#" data-href="{{ url('categorie/form/0') }}" data-modal-name="ajaxModal" role="button" class="btn btn-dark btn-create">
                     เพิ่มข้อมูล
                 </a>
             </div>
@@ -21,9 +21,12 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    @include('categorie.partials.form')
+    </div>    
 </div>
+
+{{-- ajax model --}}
+@include('layouts.modal')
+
 @endsection @section('script')
 <script src="{{ asset('js/categorie.min.js') }}"></script>
 @endsection

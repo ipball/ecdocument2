@@ -34,7 +34,8 @@
     "jquery.scrollto": "^2.1.2",
     "moment": "^2.22.1",
     "nicescroll": "^3.7.4",
-    "sweetalert2": "^7.19.3"
+    "sweetalert2": "^7.19.3",
+    "vuelidate": "^0.7.4"
   },
   "repository": {
     "type": "git",

@@ -41,7 +41,7 @@ mix.copy('resources/assets/js/jquery.blockUI.js', 'public/js/jquery.blockUI.js')
 mix.copy('resources/assets/js/switchery.min.js', 'public/js/switchery.min.js');
 mix.copy('resources/assets/js/popper.min.js', 'public/js/popper.min.js');
 
-mix.copy('node_modules/vue/dist/vue.min.js', 'public/js/vue.min.js');
+mix.copy('node_modules/vue/dist/vue.min.js', 'public/js/vue.min.js');;
 mix.copy('node_modules/axios/dist/axios.min.js', 'public/js/axios.min.js');
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js/jquery.min.js');
 mix.copy('node_modules/moment/min/moment.min.js', 'public/js/moment.min.js');

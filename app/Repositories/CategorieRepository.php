@@ -6,6 +6,15 @@ use App\Models\Categorie;
 class CategorieRepository
 {
 
+    public function castData()
+    {
+        $data = [
+            'id' => null,
+            'name' => null
+        ];
+        return (object) $data;
+    }
+
     public function getAll()
     {
         $categories = Categorie::all();

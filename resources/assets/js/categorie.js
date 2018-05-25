@@ -1,31 +1,11 @@
 var app = new Vue({
     el: '#app',
-    data: {        
+    data: {
         data: {}
-    },
-    filters : {
-        setTitle(value){
-            if(!value) return 'หมวดหมู่สินค้า';
-            return value;
-        }
-    },
-    methods: {
-        
-    },
-    mounted(){
-        $('#formModal').on('shown.bs.modal', function (e) {
-            $.LoadingOverlay('show');
-            var id = $(e.relatedTarget).data('id');
-            axios.get(APP_URL+'/categorie/'+ id).then(response => (app.data = response.data));
-            $.LoadingOverlay('hide');
-        });
-
-        $('#formModal').on('hide.bs.modal', function (e) {
-            app.data = {};
-        });
     }
 });
 $(document).ready(function () {
+    /* handle tables */
     $('#categorie-table').DataTable({
         processing: true,
         serverSide: true,
@@ -44,10 +24,47 @@ $(document).ready(function () {
             orderable: false,
             render: function (data, type, row) {
                 var dataName = row['name'];
-                var btnEdit = '<a href="#" role="button" data-id="'+data+'" class="btn btn-outline-dark btn-sm btn-edit" data-toggle="modal" data-target="#formModal"><i class="fa fa-edit"></i> แก้ไข</a> ';
+                var btnEdit = '<a href="#" data-href="' + APP_URL + '/categorie/form/' + data + '" data-modal-name="ajaxModal" role="button" data-id="' + data + '" class="btn btn-outline-dark btn-sm btn-edit"><i class="fa fa-edit"></i> แก้ไข</a> ';
                 var btnDelete = '<a href="#" data-href="' + APP_URL + 'api/products/' + data + '" data-id="' + data + '" data-name="' + dataName + '" role="button" class="btn btn-outline-danger btn-sm btn-delete"><i class="fa fa-trash"></i> ลบ</a>';
                 return btnEdit + btnDelete;
             },
         }]
+    });
+
+    /* handle validate */
+    $('#ajaxModal').on('shown.bs.modal', function (e) {
+        $('#saveForm').validate({
+            submitHandler: function (form) {
+                form.submit();
+            },
+            rules: {
+                name: {
+                    required: true
+                }
+            },
+            messages: {},
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass("error-block");
+                error.addClass("invalid-feedback");
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.parent("label"));
+                } else if (element.parent('.input-group').length) {
+                    error.insertAfter(element.parent()); /* radio checkbox? */
+                } else if (element.hasClass('select2')) {
+                    error.insertAfter(element.next('span')); /* select2 */
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).parents('.form-group').addClass('has-error').removeClass('has-success');
+                $(element).addClass('is-invalid').removeClass('is-valid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).parents('.form-group').addClass('has-success').removeClass('has-error');
+                $(element).addClass('is-valid').removeClass('is-invalid');
+            }
+        });
     });
 });

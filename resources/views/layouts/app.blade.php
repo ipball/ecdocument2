@@ -249,7 +249,7 @@
             </span>
         </footer>
 
-    </div>
+    </div>    
     <!-- END main -->
     <script src="{{ URL::asset('js/vue.min.js') }}"></script>
     <script src="{{ URL::asset('js/axios.min.js') }}"></script>
@@ -262,6 +262,8 @@
 
     <script src="{{ URL::asset('js/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('js/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/messages_th.js') }}"></script>
 
     <script src="{{ URL::asset('js/detect.js') }}"></script>
     <script src="{{ URL::asset('js/fastclick.js') }}"></script>
@@ -283,3 +285,4 @@
 </body>
 
 </html>
+
