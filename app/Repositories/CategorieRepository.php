@@ -27,23 +27,36 @@ class CategorieRepository
         return $categorie;
     }
 
-    public function store(Request $request)
+    public function store($request)
     {
         $categorie = new Categorie;
         $categorie->name = $request->name;
         $categorie->save();
+        return true;
     }
 
-    public function update(Request $request)
+    public function update($request, $id)
     {
-        $categorie = $this->getById($request->id);
+        $categorie = $this->getById($id);
+        if(empty($categorie)) return false;
+
         $categorie->name = $request->name;
         $categorie->save();
+        return true;
     }
 
     public function getDatatables()
     {
         $query = Categorie::select('id', 'name');
         return $query;
+    }
+
+    public function delete($id)
+    {
+        $categorie = $this->getById($id);
+        if(empty($categorie)) return false;
+
+        $categorie->delete();
+        return true;
     }
 }

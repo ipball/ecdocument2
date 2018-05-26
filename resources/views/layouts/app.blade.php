@@ -177,7 +177,7 @@
                         </li>
 
                         <li class="submenu">
-                            <a href="{{ url('/') }}">
+                            <a href="{{ url('/document') }}">
                                 <i class="fa fa-fw fa-file-alt"></i>
                                 <span> เอกสาร </span>
                             </a>
@@ -259,11 +259,12 @@
 
     <script src="{{ URL::asset('js/popper.min.js') }}"></script>
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-
+    
     <script src="{{ URL::asset('js/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('js/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('js/messages_th.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ URL::asset('js/messages_th.js') }}"></script>
+    <script src="{{ URL::asset('js/sweetalert2.all.min.js') }}"></script>
 
     <script src="{{ URL::asset('js/detect.js') }}"></script>
     <script src="{{ URL::asset('js/fastclick.js') }}"></script>

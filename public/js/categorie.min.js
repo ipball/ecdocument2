@@ -6,7 +6,7 @@ var app = new Vue({
 });
 $(document).ready(function () {
     /* handle tables */
-    $('#categorie-table').DataTable({
+    var table = $('#categorie-table').DataTable({
         processing: true,
         serverSide: true,
         ajax: APP_URL + '/categorie/datatables',
@@ -25,7 +25,7 @@ $(document).ready(function () {
             render: function (data, type, row) {
                 var dataName = row['name'];
                 var btnEdit = '<a href="#" data-href="' + APP_URL + '/categorie/form/' + data + '" data-modal-name="ajaxModal" role="button" data-id="' + data + '" class="btn btn-outline-dark btn-sm btn-edit"><i class="fa fa-edit"></i> แก้ไข</a> ';
-                var btnDelete = '<a href="#" data-href="' + APP_URL + 'api/products/' + data + '" data-id="' + data + '" data-name="' + dataName + '" role="button" class="btn btn-outline-danger btn-sm btn-delete"><i class="fa fa-trash"></i> ลบ</a>';
+                var btnDelete = '<a href="#" data-href="' + APP_URL + '/categorie/' + data + '" data-id="' + data + '" data-name="' + dataName + '" role="button" class="btn btn-outline-danger btn-sm btn-delete"><i class="fa fa-trash"></i> ลบ</a>';
                 return btnEdit + btnDelete;
             },
         }]
@@ -35,7 +35,9 @@ $(document).ready(function () {
     $('#ajaxModal').on('shown.bs.modal', function (e) {
         $('#saveForm').validate({
             submitHandler: function (form) {
-                form.submit();
+                var id = $('input[name=id]').val();
+                var url = APP_URL + '/categorie';
+                saveForm(id, url, table);
             },
             rules: {
                 name: {
@@ -66,5 +68,17 @@ $(document).ready(function () {
                 $(element).addClass('is-valid').removeClass('is-invalid');
             }
         });
+    });
+
+    /* handle delete */
+    $('body').on('click', '.btn-delete', function (e) {
+        e.preventDefault();
+        var url = $(this).data('href');
+        var name = $(this).data('name');
+        var callback = function(){
+            deleteForm(url, table);
+        }
+
+        confirmBox('ลบข้อมูล ' + name, callback);
     });
 });
