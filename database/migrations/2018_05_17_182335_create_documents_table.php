@@ -20,11 +20,12 @@ class CreateDocumentsTable extends Migration
             $table->string('reference', 100)->nullable(true);
             $table->string('store', 100)->nullable(true);
             $table->text('description')->nullable(true);
+            $table->string('file_name', 200)->nullable(true);
+            $table->timestamp('doc_date')->nullable(true);
             $table->enum('status', ['normal', 'canceled', 'lost'])->default('normal');
-            $table->integer('created_by');
-            $table->integer('updated_by');
+            $table->integer('created_by')->nullable(true);
+            $table->integer('updated_by')->nullable(true);
             $table->integer('categorie_id');
-            $table->integer('mediafile_id');
             $table->timestamps();
         });
     }

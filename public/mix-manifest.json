@@ -5,7 +5,10 @@
     "/js/custom.min.js": "/js/custom.min.js",
     "/css/bootstrap.min.css": "/css/bootstrap.min.css",
     "/css/sweetalert2.min.css": "/css/sweetalert2.min.css",
+    "/css/select2.min.css": "/css/select2.min.css",
+    "/css/select2-bootstrap4.min.css": "/css/select2-bootstrap4.min.css",
     "/css/dataTables.bootstrap4.css": "/css/dataTables.bootstrap4.css",
+    "/css/bootstrap-datepicker3.min.css": "/css/bootstrap-datepicker3.min.css",
     "/css/switchery.min.css": "/css/switchery.min.css",
     "/css/style.css": "/css/style.css",
     "/css/custom.css": "/css/custom.css",
@@ -29,5 +32,7 @@
     "/js/jquery.validate.min.js": "/js/jquery.validate.min.js",
     "/js/messages_th.js": "/js/messages_th.js",
     "/js/jquery.dataTables.js": "/js/jquery.dataTables.js",
-    "/js/dataTables.bootstrap4.js": "/js/dataTables.bootstrap4.js"
+    "/js/dataTables.bootstrap4.js": "/js/dataTables.bootstrap4.js",
+    "/js/select2.min.js": "/js/select2.min.js",
+    "/js/bootstrap-datepicker.min.js": "/js/bootstrap-datepicker.min.js"
 }

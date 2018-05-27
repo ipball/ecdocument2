@@ -18,8 +18,10 @@
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('font-awesome/css/fontawesome-all.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('css/select2-bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('css/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-
+    
     <!-- Custom CSS -->
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
@@ -265,6 +267,7 @@
     <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ URL::asset('js/messages_th.js') }}"></script>
     <script src="{{ URL::asset('js/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ URL::asset('js/select2.min.js') }}"></script>
 
     <script src="{{ URL::asset('js/detect.js') }}"></script>
     <script src="{{ URL::asset('js/fastclick.js') }}"></script>

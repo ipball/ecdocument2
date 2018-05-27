@@ -20,3 +20,12 @@ Route::prefix('categorie')->group(function(){
     Route::get('datatables', 'CategorieController@getDatatables');    
     Route::get('form/{id}', 'CategorieController@renderForm');
 });
+
+Route::prefix('document')->group(function(){
+    Route::get('', 'DocumentController@index');
+    Route::post('', 'DocumentController@store');
+    Route::patch('{id}', 'DocumentController@update');
+    Route::delete('{id}', 'DocumentController@delete');
+    Route::get('datatables', 'DocumentController@getDatatables');    
+    Route::get('form/{id}', 'DocumentController@renderForm');
+});

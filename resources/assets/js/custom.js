@@ -1,3 +1,16 @@
+/* init select2, datepicker */
+$('.modal').on('shown.bs.modal', function(e){
+    $('.select2').select2({
+        theme: 'bootstrap4'
+    });
+
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true
+    });
+});
+
 /* handle active menu */
 var url = window.location;
 var suburl = url.href.replace(/\/(creat(\S+)|edit(\S+))/g,'');    
@@ -19,12 +32,12 @@ $('body').on('click', '.btn-edit', function (e) {
     modalShow(e, link, modalName);
 });
 
-$('#ajaxModal, #ajaxLargeModal').on('hidden.bs.modal', function () {
+$('#ajaxModal').on('hidden.bs.modal', function () {
     $('.modal-content').empty();
     $(this).removeData('bs.modal');
 });
 
-$('#ajaxModal, #ajaxLargeModal').on('shown.bs.modal', function (e) {
+$('#ajaxModal').on('shown.bs.modal', function (e) {
     $.LoadingOverlay('hide');
 });
 

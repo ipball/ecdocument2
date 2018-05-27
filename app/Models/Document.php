@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'doc_date'
+    ];
+
     public function categorie()
     {
         return $this->belongsTo('App\Models\Categorie');
-    }
-
-    public function mediafiles()
-    {
-        return $this->hasMany('App\Models\Mediafile');
     }
 
     public function user()

@@ -31,7 +31,7 @@ a {
 	border-radius: 50px; }
 	
 label {
-  font-weight: 500; }
+  font-weight: bold; }
 
 .label {
   display: inline-block;
