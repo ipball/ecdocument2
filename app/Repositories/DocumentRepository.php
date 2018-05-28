@@ -37,15 +37,14 @@ class DocumentRepository
     }
 
     public function store($request)
-    {
-        $file_name = $request->file('file_name')->store('documents');
+    {        
         $document = new Document;
         $document->code_no = $request->code_no;
         $document->name = $request->name;
         $document->reference = $request->reference;
         $document->store = $request->store;
         $document->description = $request->description;
-        $document->file_name = $file_name;      
+        $document->file_name = $request->file_name;      
         $document->doc_date = Carbon::createFromFormat('d/m/Y', $request->doc_date)->toDateString();  
         $document->categorie_id = $request->categorie_id;
         $document->created_by = $request->created_by;
@@ -57,14 +56,13 @@ class DocumentRepository
     {        
         $document = $this->getById($id);
         if(empty($document)) return false;
-
-        $file_name = $request->file('file_name')->store('documents');
+        
         $document->code_no = $request->code_no;
         $document->name = $request->name;
         $document->reference = $request->reference;
         $document->store = $request->store;
         $document->description = $request->description;
-        $document->file_name = $file_name;
+        $document->file_name = $request->file_name;
         $document->status = $request->status;       
         $document->doc_date = Carbon::createFromFormat('d/m/Y' , $request->doc_date)->toDateString(); 
         $document->categorie_id = $request->categorie_id;

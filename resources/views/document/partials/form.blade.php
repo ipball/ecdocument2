@@ -52,7 +52,10 @@
         <div class="form-row">
             <div class="form-group col-md-4 col-sm-12">
                 <label for="file_name">ไฟล์เอกสาร</label>
-                <input type="file" name="file_name" class="form-control-file">
+                <input type="file" name="file" id="file"class="form-control-file">
+                <br>
+                <a href="{{ Storage::url($data->file_name) }}" target="_blank" role="button" class="btn btn-view-file btn-sm btn-outline-warning @if(empty($data->file_name)) invisible @else visible @endif">ดูไฟล์เอกสาร</a>                
+                <input type="hidden" name="file_name" id="file_name">
             </div>
             <div class="form-group col-md-4 col-sm-12">
                 <label for="doc_date">วันที่เอกสาร</label>

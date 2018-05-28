@@ -28,4 +28,5 @@ Route::prefix('document')->group(function(){
     Route::delete('{id}', 'DocumentController@delete');
     Route::get('datatables', 'DocumentController@getDatatables');    
     Route::get('form/{id}', 'DocumentController@renderForm');
+    Route::post('uploadfile', 'DocumentController@uploadfile');
 });

@@ -1,4 +1,4 @@
-$(document).ready(function () {    
+$(document).ready(function () {
     /* handle tables */
     var table = $('#document-table').DataTable({
         processing: true,
@@ -28,7 +28,10 @@ $(document).ready(function () {
         columnDefs: [{
                 targets: 3,
                 render: function (data, type, row) {
-                    return data;
+                    var status = data==='normal' ? 'primary' : 'danger';
+                    var strStatus = data==='normal' ? 'ปกติ' : (data==='canceled' ? 'ยกเลิกการใช้' : 'สูญหาย');
+                    var result = '<span class="badge badge-'+status+'">'+strStatus+'</span>';
+                    return result;
                 },
             },
             {
@@ -60,9 +63,6 @@ $(document).ready(function () {
                     required: true
                 },
                 code_no: {
-                    required: true
-                },
-                file_name: {
                     required: true
                 }
             },
@@ -103,5 +103,49 @@ $(document).ready(function () {
 
         confirmBox('ลบข้อมูล ' + name, callback);
     });
+
+    /* handle upload file */
+    var openModal = false;
+    $('#ajaxModal').on('shown.bs.modal', function (e) {
+        $('body').on('change', '#file', function (e) {
+            if(openModal) return false;
+            openModal = true;
+            e.preventDefault();
+            loadingCustom();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            var form_data = new FormData();
+            form_data.append('file', this.files[0]);
+            $.ajax({
+                url: APP_URL+'/document/uploadfile',
+                data: form_data,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                success: function (resp) {                    
+                    $.LoadingOverlay('hide');
+                    if(resp.status==='success'){
+                        $('#file_name').val(resp.data);
+                        $('.btn-view-file').removeClass('invisible').addClass('visible');
+                        $('.btn-view-file').attr('href', APP_LINK+resp.data);
+                    } else {
+                        showBox(resp.message.file[0], 'error');
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {                    
+                    $.LoadingOverlay('hide');
+                    showBox(textStatus, 'error', errorThrown);
+                }
+            });
+        });
+    });
+
+    $('#ajaxModal').on('hidden.bs.modal', function (e) {
+        openModal = false;
+    });   
 
 });
