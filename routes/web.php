@@ -30,3 +30,13 @@ Route::prefix('document')->group(function(){
     Route::get('form/{id}', 'DocumentController@renderForm');
     Route::post('uploadfile', 'DocumentController@uploadfile');
 });
+
+Route::prefix('user')->group(function(){
+    Route::get('', 'UserController@index');
+    Route::post('', 'UserController@store');
+    Route::patch('{id}', 'UserController@update');
+    Route::delete('{id}', 'UserController@delete');
+    Route::get('datatables', 'UserController@getDatatables');    
+    Route::get('form/{id}', 'UserController@renderForm');
+    Route::get('username_check', 'UserController@usernameCheck');
+});

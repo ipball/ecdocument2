@@ -173,6 +173,13 @@
                         </li>
 
                         <li class="submenu">
+                            <a href="{{ url('/user') }}">
+                                <i class="fa fa-fw fa-user"></i>
+                                <span> ผู้ใช้งาน </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
                             <a href="{{ url('/categorie') }}">
                                 <i class="fa fa-fw fa-briefcase"></i>
                                 <span> หมวดหมู่เอกสาร </span>
@@ -269,6 +276,7 @@
     <script src="{{ URL::asset('js/messages_th.js') }}"></script>
     <script src="{{ URL::asset('js/sweetalert2.all.min.js') }}"></script>
     <script src="{{ URL::asset('js/select2.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 
     <script src="{{ URL::asset('js/detect.js') }}"></script>
     <script src="{{ URL::asset('js/fastclick.js') }}"></script>

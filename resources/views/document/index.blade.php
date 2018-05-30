@@ -36,6 +36,5 @@
 @include('layouts.large_modal')
 
 @endsection @section('script')
-<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('js/document.min.js') }}"></script>
 @endsection

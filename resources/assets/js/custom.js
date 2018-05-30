@@ -20,6 +20,11 @@ $('li.submenu a').filter(function () {
     return this.href == suburl;
 }).addClass('active subdrop');
 
+/* valid alpha */
+jQuery.validator.addMethod('alphanumeric', function(value, element) {
+    return this.optional(element) || /^[\w.]+$/i.test(value);
+}, 'ระบุเฉพาะตัวอักษร a-z, 0-9 และ _ เท่านั้น');
+
 /* handle modal form */
 $('body').on('click', '.btn-create', function (e) {
     link = $(this).data('href');
