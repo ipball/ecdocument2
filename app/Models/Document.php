@@ -21,4 +21,10 @@ class Document extends Model
     {
         return $this->belongsTo('App\Models\User', 'created_by');
     }
+
+    // accessorie
+    public function getStatusNameAttribute()
+    {
+        return $this->status == 'normal' ? 'ปกติ' : ($this->status == 'canceled' ? 'ยกเลิกการใช้' : 'สูญหาย');
+    }
 }

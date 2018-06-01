@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('department', 100)->nullable(true);
             $table->rememberToken();
             $table->timestamp('last_login')->useCurrent();
-            $table->enum('user_type', ['member', 'moderator', 'admin'])->default('member');
+            $table->enum('user_type', ['member', 'admin'])->default('member');
             $table->timestamps();
         });
     }

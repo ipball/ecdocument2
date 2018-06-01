@@ -6,11 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Repositories\CategorieRepository;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategorieController extends Controller
 {
     public function index()
     {
+        if(strtolower(Auth::user()->user_type) !== 'admin'){
+            return redirect('/');
+        }
+
         return view('categorie.index');
     }
 
@@ -24,6 +29,10 @@ class CategorieController extends Controller
     }
 
     public function renderForm(CategorieRepository $categorie, $id){
+        if(strtolower(Auth::user()->user_type) !== 'admin'){
+            return redirect('/');
+        }
+
         $cate = $categorie->getById($id);
         $data['title'] = !empty($cate) ? $cate['name'] : 'สร้างหมวดหมู่เอกสาร';
         $data['data'] = !empty($cate) ? $cate : $categorie->castData();

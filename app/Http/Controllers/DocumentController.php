@@ -7,11 +7,22 @@ use App\Repositories\DocumentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Auth;
+
 class DocumentController extends Controller
 {
     public function index()
     {
+        if(strtolower(Auth::user()->user_type) !== 'admin'){
+            return redirect('/');
+        }
+
         return view('document.index');
+    }
+
+    public function main()
+    {
+        return view('document.main');
     }
 
     public function getDatatables(DocumentRepository $document)
@@ -27,11 +38,23 @@ class DocumentController extends Controller
 
     public function renderForm(DocumentRepository $document, CategorieRepository $categorie, $id)
     {
+        if(strtolower(Auth::user()->user_type) !== 'admin'){
+            return redirect('/');
+        }
+        
         $cate = $document->getById($id);
         $data['title'] = !empty($cate) ? $cate['name'] : 'สร้างเอกสาร';
         $data['data'] = !empty($cate) ? $cate : $document->castData();
         $data['categories'] = $categorie->getAll();
         return view('document.partials.form', $data);
+    }
+
+    public function view(DocumentRepository $document, $id)
+    {        
+        $cate = $document->getById($id);
+        $data['title'] = $cate['name'];
+        $data['data'] =  $cate;        
+        return view('document.partials.view', $data);
     }
 
     public function store(DocumentRepository $document, Request $request)

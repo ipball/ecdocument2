@@ -34,6 +34,7 @@
     <script type="text/javascript">
         var APP_URL = {!! json_encode(url('/')) !!}
         var APP_LINK = {!! json_encode(Storage::url('/')) !!}
+        var APP_USERID = {!! json_encode(Auth::id()) !!}
     </script>
 </head>
 
@@ -46,9 +47,9 @@
 
             <!-- LOGO -->
             <div class="headerbar-left">
-                <a href="index.html" class="logo">
+                <a href="{{ url('/') }}" class="logo">
                     <img alt="logo" src="{{ URL::asset('img/logo.png') }}" />
-                    <span>Admin</span>
+                    <span>ECDocument</span>
                 </a>
             </div>
 
@@ -99,7 +100,7 @@
                             </a>
 
                             <!-- All-->
-                            <a title="Clcik to visit Pike Admin Website" target="_blank" href="https://www.itoffside.com" class="dropdown-item notify-item notify-all">
+                            <a title="Clcik to visit Pike Admin Website" target="_blank" href="https://www.bahtsoft.com" class="dropdown-item notify-item notify-all">
                                 <i class="fa fa-link"></i> เยี่ยมชมเว็บไซต์ผู้พัฒนา
                             </a>
 
@@ -116,27 +117,16 @@
                             <!-- item-->
                             <div class="dropdown-item noti-title">
                                 <h5 class="text-overflow">
-                                    <small>Hello, admin</small>
+                                    <small>Hello, {{ Auth::user()->username }}</small>
                                 </h5>
                             </div>
 
                             <!-- item-->
-                            <a href="pro-profile.html" class="dropdown-item notify-item">
-                                <i class="fa fa-user"></i>
-                                <span>Profile</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="#" class="dropdown-item notify-item">
+                            <a href="{{ url('/logout') }}" class="dropdown-item notify-item">
                                 <i class="fa fa-power-off"></i>
                                 <span>Logout</span>
                             </a>
-
-                            <!-- item-->
-                            <a target="_blank" href="https://www.itoffside.com" class="dropdown-item notify-item">
-                                <i class="fa fa-external-link"></i>
-                                <span>Pike Admin</span>
-                            </a>
+                           
                         </div>
                     </li>
 
@@ -171,13 +161,19 @@
                                 <span> Dashboard </span>
                             </a>
                         </li>
-
+                        <li class="submenu">
+                                <a href="{{ url('/document/main') }}">
+                                    <i class="fa fa-fw fa-file-pdf"></i>
+                                    <span> รายการเอกสาร </span>
+                                </a>
+                            </li>
+                        @if(strtolower(Auth::user()->user_type) === 'admin')
                         <li class="submenu">
                             <a href="{{ url('/user') }}">
                                 <i class="fa fa-fw fa-user"></i>
                                 <span> ผู้ใช้งาน </span>
                             </a>
-                        </li>
+                        </li>                                             
 
                         <li class="submenu">
                             <a href="{{ url('/categorie') }}">
@@ -189,9 +185,10 @@
                         <li class="submenu">
                             <a href="{{ url('/document') }}">
                                 <i class="fa fa-fw fa-file-alt"></i>
-                                <span> เอกสาร </span>
+                                <span> จัดการเอกสาร </span>
                             </a>
                         </li>
+                        @endif   
 
                     </ul>
 
@@ -249,11 +246,11 @@
         <footer class="footer">
             <span class="text-right">
                 Copyright
-                <a target="_blank" href="#">itoffside.com</a>
+                <a target="_blank" href="#">bahtsoft.com</a>
             </span>
             <span class="float-right">
                 Powered by
-                <a target="_blank" href="https://www.itoffside.com">
+                <a target="_blank" href="https://www.bahtsoft.com">
                     <b>Bahtsoft TEAM</b>
                 </a>
             </span>

@@ -148,4 +148,46 @@ $(document).ready(function () {
         openModal = false;
     });   
 
+    /* handle tables */
+    var tbview = $('#document-tbview').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: APP_URL + '/document/datatables',
+        columns: [{
+                data: 'code_no',
+                name: 'code_no'
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'categorie_name',
+                name: 'categorie_name'
+            },
+            {
+                data: 'status',
+                name: 'status'
+            }
+        ],
+        columnDefs: [
+            {
+                targets: 0,                
+                render: function (data, type, row) {                    
+                    var btnView = '<a href="#" data-href="' + APP_URL + '/document/view/' + row.id + '" data-modal-name="ajaxModal" data-id="' + row.id + '" class="btn-edit">'+data+'</a> ';                    
+                    return btnView;
+                },
+            },
+            {
+                targets: 3,
+                render: function (data, type, row) {
+                    var status = data==='normal' ? 'primary' : 'danger';
+                    var strStatus = data==='normal' ? 'ปกติ' : (data==='canceled' ? 'ยกเลิกการใช้' : 'สูญหาย');
+                    var result = '<span class="badge badge-'+status+'">'+strStatus+'</span>';
+                    return result;
+                },
+            }
+        ]
+    });
+
 });

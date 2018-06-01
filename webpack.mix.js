@@ -36,6 +36,7 @@ mix.copy('node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.c
 mix.copy('resources/assets/css/switchery.min.css', 'public/css/switchery.min.css');
 mix.copy('resources/assets/css/style.css', 'public/css/style.css');
 mix.copy('resources/assets/css/custom.css', 'public/css/custom.css');
+mix.copy('resources/assets/css/main-login.css', 'public/css/main-login.css');
 
 mix.copy('resources/assets/js/modernizr.min.js', 'public/js/modernizr.min.js');
 mix.copy('resources/assets/js/pikeadmin.js', 'public/js/pikeadmin.min.js');

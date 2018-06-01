@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use App\Models\Document;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentRepository
 {
@@ -47,7 +48,7 @@ class DocumentRepository
         $document->file_name = $request->file_name;      
         $document->doc_date = Carbon::createFromFormat('d/m/Y', $request->doc_date)->toDateString();  
         $document->categorie_id = $request->categorie_id;
-        $document->created_by = $request->created_by;
+        $document->created_by = Auth::id();
         $document->save();
         return true;
     }
@@ -66,7 +67,7 @@ class DocumentRepository
         $document->status = $request->status;       
         $document->doc_date = Carbon::createFromFormat('d/m/Y' , $request->doc_date)->toDateString(); 
         $document->categorie_id = $request->categorie_id;
-        $document->updated_by = $request->updated_by;
+        $document->updated_by = Auth::id();
         $document->save();
         return true;
     }

@@ -6,10 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
-{
+{    
     public function index()
-    {
+    {             
+        if(strtolower(Auth::user()->user_type) !== 'admin'){
+            return redirect('/');
+        }
+
         return view('user.index');
     }
 
@@ -24,6 +30,10 @@ class UserController extends Controller
 
     public function renderForm(UserRepository $user, $id)
     {
+        if(strtolower(Auth::user()->user_type) !== 'admin'){
+            return redirect('/');
+        }
+        
         $cate = $user->getById($id);
         $data['title'] = !empty($cate) ? $cate['name'] : 'สร้างผู้ใช้งานใหม่';
         $data['data'] = !empty($cate) ? $cate : $user->castData();
