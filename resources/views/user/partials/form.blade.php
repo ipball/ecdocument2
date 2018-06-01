@@ -57,8 +57,7 @@
                     @if(empty($data->id))
                     <option value="">เลือกประเภท</option>
                     @endif
-                    <option value="member" @if($data->user_type==='member') selected @endif>สมาชิกทั่วไป</option>
-                    <option value="moderator" @if($data->user_type==='moderator') selected @endif>ผู้ช่วยผู้ดูแลระบบ</option>
+                    <option value="member" @if($data->user_type==='member') selected @endif>สมาชิกทั่วไป</option>                    
                     <option value="admin" @if($data->user_type==='admin') selected @endif>ผู้ดูแลระบบ</option>
                 </select>
             </div>
