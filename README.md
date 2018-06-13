@@ -16,8 +16,6 @@ electronic document
 2. ฐานข้อมูล maria DB
 
 # ทดสอบการใช้งาน
-[demo link](https://www.bahtsoft.com/demo_ecdocument)
-
 username : tawatsak
 
 password : 123456
