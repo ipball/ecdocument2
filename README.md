@@ -28,11 +28,12 @@ password : 123456
 3. พิมพ์ php artisan key:generate
 4. สร้างฐานข้อมูล และ ตั้งค่าข้อมูลในไฟล์ .env
 5. พิมพ์ php artisan migrate
-6. พิมพ์ npm install
-7. พิมพ์ npm run dev
-8. พิมพ์ php artisan serve
-9. เข้าเว็บ http://127.0.0.1:8000
-10. ตั้งค่ากำหนดสิทธิ์อัพโหลดไฟล์ที่โฟล์เดอร์ storage ให้ทุกคนสามารถอัพโหลดได้ (CHMOD 777)
+6. พิมพ์ php artisan db:seed
+7. พิมพ์ npm install
+8. พิมพ์ npm run dev
+9. พิมพ์ php artisan serve
+10. เข้าเว็บ http://127.0.0.1:8000
+11. ตั้งค่ากำหนดสิทธิ์อัพโหลดไฟล์ที่โฟล์เดอร์ storage ให้ทุกคนสามารถอัพโหลดได้ (CHMOD 777)
 
 # Special Thanks
 ขอขอบคุณทุกๆท่านที่ทำให้นักพัฒนามีแรงบรรดาลใจในการพัฒนาต่อไปโดยการ บอกต่อ(Share)
