@@ -14,6 +14,8 @@ electronic document
 # ความต้องการของโปรแกรม
 1. PHP version 7.1.3 หรือมากกว่า
 2. ฐานข้อมูล maria DB
+3. Composser (ใช้ในการพัฒนาและติดตั้งโปรแกรม)
+4. NodeJS (ใช้ในการพัฒนาและติดตั้งโปรแกรม)
 
 # ทดสอบการใช้งาน
 https://www.bahtsoft.com/demo_ecdocument
@@ -25,15 +27,18 @@ password : 123456
 # การติดตั้ง
 1. ดาวน์โหลด Project มาแล้ว เปิด Command line เข้าไปโฟล์เดอร์ Project
 2. พิมพ์ composer install
-3. พิมพ์ php artisan key:generate
-4. สร้างฐานข้อมูล และ ตั้งค่าข้อมูลในไฟล์ .env
-5. พิมพ์ php artisan migrate
-6. พิมพ์ php artisan db:seed
-7. พิมพ์ npm install
-8. พิมพ์ npm run dev
-9. พิมพ์ php artisan serve
-10. เข้าเว็บ http://127.0.0.1:8000
-11. ตั้งค่ากำหนดสิทธิ์อัพโหลดไฟล์ที่โฟล์เดอร์ storage ให้ทุกคนสามารถอัพโหลดได้ (CHMOD 777)
+3. สร้างฐานข้อมูลชื่อ ecdocument
+4. เข้าโฟลเดอร์โปรเจค สร้างไฟล์ .env (ก๊อปไฟล์ .env.example) ถ้าใครสร้างไม่ได้ให้สร้างบน Editor
+5. ตั้งค่าฐานข้อมูลในไฟล์ .env ในตัวแปรที่มี คือ DB_ นำหน้า
+6. พิมพ์ php artisan key:generate
+7. พิมพ์ php artisan storage:link
+8. พิมพ์ php artisan migrate
+9. พิมพ์ php artisan db:seed
+10. พิมพ์ npm install
+11. พิมพ์ npm run dev
+12. พิมพ์ php artisan serve
+13. เข้าเว็บ http://127.0.0.1:8000
+14. ตั้งค่ากำหนดสิทธิ์อัพโหลดไฟล์ที่โฟล์เดอร์ storage ให้ทุกคนสามารถอัพโหลดได้ (CHMOD 777)
 
 # Special Thanks
 ขอขอบคุณทุกๆท่านที่ทำให้นักพัฒนามีแรงบรรดาลใจในการพัฒนาต่อไปโดยการ บอกต่อ(Share)
