@@ -26,7 +26,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "ajv": "^6.5.0",
+    "ajv": "^6.12.3",
     "bootstrap-datepicker": "^1.8.0",
     "datatables.net-bs4": "^1.10.16",
     "fastclick": "^1.0.6",
